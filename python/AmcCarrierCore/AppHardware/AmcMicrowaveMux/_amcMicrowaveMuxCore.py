@@ -144,6 +144,9 @@ class AmcMicrowaveMuxCore(pr.Device):
 
         # must pulse SYSREF before SPI to ADC
         self.LMK.Init()
+        self.LMK.Init()
+
+        time.sleep(0.50) # TODO: Optimize this timeout
 
         self.ADC[0].writeBlocks(force=force, recurse=recurse, variable=variable)
         self.ADC[1].writeBlocks(force=force, recurse=recurse, variable=variable)
