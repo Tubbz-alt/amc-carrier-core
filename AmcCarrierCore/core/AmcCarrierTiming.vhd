@@ -338,7 +338,7 @@ begin
          appTimingRst    => appTimingRst,
          appTimingMode   => appTimingMode,
          appTimingBus    => appBus,
-         timingPhy       => coreTimingPhy,
+         tpgMiniTimingPhy=> coreTimingPhy,
          timingClkSel    => timingClockSel,
          axilClk         => axilClk,
          axilRst         => axilRst,
