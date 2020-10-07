@@ -51,6 +51,7 @@ class AppTop(pr.Device):
             description  = "Used to override the SysRefPeriodmin != SysRefPeriodmax error flag",
             mode         = "RW",
             value        = False,
+            hidden       = True,
         ))
 
         self.add(pr.LocalVariable(
@@ -58,6 +59,7 @@ class AppTop(pr.Device):
             description  = "Used to override the DAC.ReadFifoEmpty error flag",
             mode         = "RW",
             value        = False,
+            hidden       = True,
         ))
 
         ##############################
