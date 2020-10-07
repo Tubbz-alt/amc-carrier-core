@@ -53,6 +53,13 @@ class AppTop(pr.Device):
             value        = False,
         ))
 
+        self.add(pr.LocalVariable(
+            name         = "BypassDacReadFifoEmpty",
+            description  = "Used to override the DAC.ReadFifoEmpty error flag",
+            mode         = "RW",
+            value        = False,
+        ))
+
         ##############################
         # Devices
         ##############################
@@ -119,7 +126,8 @@ class AppTop(pr.Device):
                     ######################################################################
                     if (dac.ReadFifoEmpty[ch].get() != 0):
                         print(f'AppTop.Init(): {dac.path}.ReadFifoEmpty[{ch}] = {dac.ReadFifoEmpty[ch].value()}')
-                        linkLock = False
+                        if self.BypassDacReadFifoEmpty.value() is False:
+                            linkLock = False
                     ######################################################################
                     if (dac.ReadFifoUnderflow[ch].get() != 0):
                         print(f'AppTop.Init(): {dac.path}.ReadFifoUnderflow[{ch}] = {dac.ReadFifoUnderflow[ch].value()}')
